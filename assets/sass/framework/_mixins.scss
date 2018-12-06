@@ -1,0 +1,139 @@
+//*
+//* Font Family
+//*
+
+@mixin lato() {
+	font-family: 'Lato', sans-serif;
+}
+
+@mixin merri() {
+	font-family: 'Merriweather', serif;
+}
+
+//*
+//* Font Mixins
+//*
+
+@mixin font($size: 1.8rem, $lheight: 3rem) {
+	font-size: $size;
+	line-height: $lheight;
+}
+
+@mixin hiddentext() {
+	text-indent:-99999px;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+@mixin ellip() {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+
+//*
+//* Dimensions Mixins
+//*
+
+@mixin block($w: 100%, $h: 100%) {
+	display: block;
+	width: $w;
+	height: $h;
+}
+
+@mixin dims($w: 100%, $h: 100%) {
+	width: $w;
+	height: $h;
+}
+
+@mixin pos($pos: absolute, $w: 100%, $h: 100%) {
+	position: $pos;
+	width: $w;
+	height: $h;
+}
+
+@mixin transform($prop) {
+	-webkit-transform: $prop;
+	-ms-transform: $prop;
+	transform: $prop;
+}
+
+
+//*
+//* Animations Mixins
+//*
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+	@-moz-keyframes #{$animation-name} {
+		@content;
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+@mixin flex($just: space-between, $align: center) {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: $just;
+        -ms-flex-pack: $just;
+            justify-content: $just;
+    -webkit-box-align: $align;
+        -ms-flex-align: $align;
+            align-items: $align;
+}
+
+@mixin flex-col(){
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+@mixin clearfix() {
+	position: relative;
+
+	&:after {
+		clear: both;
+		display: block;
+		content: '';
+		visibility: hidden;
+	}
+}
+
+//*
+//* Backgrounds Mixins
+//*
+
+@mixin bg($img, $x: 0, $y: 0, $rep: no-repeat, $color: transparent, $pos: scroll) {
+	background: url('assets/images/#{$img}') $pos $rep $x $y $color;
+}
+
+
+//*
+//* Blocks
+//*
+
+@mixin scale($val) {
+	transform: scale($val);
+}
+
+@mixin round($radius: $round, $positions: all) {
+	@if $positions == all {
+		border-radius: $radius;
+	} @else {
+		@each $position in $positions {
+			border-#{$position}-radius: $radius;
+		}
+	}
+}

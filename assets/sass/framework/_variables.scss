@@ -1,0 +1,25 @@
+//*
+//* COLORS
+//*
+
+$light: 10%;
+$dark: 10%;
+
+$primary-color: #12A57D;
+
+$title-color: #000000;
+$text-color: #414141;
+$effect-circle: #050505;
+
+$error-color: #f7454c;
+$success-color: #2CD963;
+
+$light-primary-color: lighten($primary-color, $light);
+$dark-primary-color: darken($primary-color, $dark);
+$comp-primary-color: complement($primary-color);
+
+//*
+//* DEFAULT VARIABLES
+//*
+
+$round: 5px;
